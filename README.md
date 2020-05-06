@@ -56,7 +56,7 @@ SDO supports different modes, and different predictor variants and configuration
     * (without this option): disable SDO
     * (with this option): enable SDO
 
-* --pred_type: location predictor type
+* --pred_type=[string]: location predictor type
     * static: static location predictor. Predict a constant level.
     * greedy: Greedy location predictor
     * hysteresis: Hysteresis location predictor
@@ -67,20 +67,20 @@ SDO supports different modes, and different predictor variants and configuration
     * tournament_2way: combining two predictors (e.g., greedy + hysteresis)
     * tournament_3way: combining three predictors (e.g., greedy + hysteresis + local)
 
-* --pred_option: parameters for location predictor
+* --pred_option=[number]: parameters for location predictor
     * (for static): 0 - always predicting L1; 1 - always predicting L2; 2 - always predicting L3 ; 3 - alwasy predicting DRAM
     * (for greedy, hysteresis, local, loop, perfect, tournament_2way/3way): 0 - can predict any level; 1 - don't predict DRAM; 2 - don't predict DRAM+LLC
 
-* --subpred1_type: the first component of a tournament_2way/tournament_3way predictor
+* --subpred1_type=[string]: the first component of a tournament_2way/tournament_3way predictor
     * choose from any --pred_type options
 
-* --subpred2_type: the second component of a tournament_2way/tournament_3way predictor
+* --subpred2_type=[string]: the second component of a tournament_2way/tournament_3way predictor
     * choose from any --pred_type options
 
-* --subpred3_type: the third component of a tournament_3way predictor
+* --subpred3_type=[string]: the third component of a tournament_3way predictor
     * choose from any --pred_type options
 
-* --TLB_defense
+* --TLB_defense=[string]: TLB defense option
     * No: No TLB defense
     * SDO: SDO's TLB defense: on TLB misses, proceed with predicted page number
     * UnsafeDelay: on TLB misses, delay the memory access
