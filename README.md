@@ -8,7 +8,7 @@ More details can be found in our ISCA'20 paper [here](). Here is a sample format
 
 ```
 
-## 2. Implementing SDO
+## 2. How is SDO implemented
 
 We implement SDO on top of [Gem5](ge5.org) simulator, which is a cycle-accurate simulator with both system call emulation and full system modes. SDO is implemented on an early version of Gem5 (commit:38a1e23). SDO is fully implemented on Gem5's O3 processor and Ruby memory subsystem.
 
@@ -18,7 +18,7 @@ SDO relies on STT to identify leakage (via tainting/untainting) and explicit/imp
 * adding logic in load-store unit for issuing Obl-Ld requests for protecting unsafe loads
 * adding logic in memory subsystem for implementing safe Obl-Ld operations at each cache level
 
-## 3. Usafe
+## 3. How to use SDO
 
 ### 1) Build Gem5 executable
 
