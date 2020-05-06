@@ -1,0 +1,197 @@
+./arch/x86/pagetable_walker.cc:111:    WalkerSenderState * senderState =
+./arch/x86/pagetable_walker.cc:113:    WalkerState * senderWalk = senderState->senderWalk;
+./arch/x86/pagetable_walker.cc:115:    delete senderState;
+./cpu/minor/fetch1.hh:87:     *  FetchSenderState senderState containing the current lineSeqNum and
+./cpu/minor/lsq.hh:722: *  pushed into the packet as senderState */
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:78:    if (pkt->senderState)
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:79:        delete pkt->senderState;
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:101:    LSQSenderState *state = dynamic_cast<LSQSenderState *>(pkt->senderState);
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:1191:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:1223:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:1225:            snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:1426:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:1435:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:1436:            snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withoutloadToVLD:1915:            dynamic_cast<LSQSenderState *>(retryPkt->senderState);
+./cpu/o3/lsq_unit.hh:974:    data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1064:        fst_data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1065:        snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1495:        //data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1551:            //fst_data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1552:            //snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1733:        //data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1752:            //fst_data_pkt->senderState = state;
+./cpu/o3/lsq_unit.hh:1753:            //snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh:81:    if (pkt->senderState)
+./cpu/o3/lsq_unit_impl.hh:82:        delete pkt->senderState;
+./cpu/o3/lsq_unit_impl.hh:107:    LSQSenderState *state = dynamic_cast<LSQSenderState *>(pkt->senderState);
+./cpu/o3/lsq_unit_impl.hh:1775:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh:1914:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh:1919:            snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh:2123:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh:2132:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh:2133:            snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh:2627:            dynamic_cast<LSQSenderState *>(retryPkt->senderState);
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:78:    if (pkt->senderState)
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:79:        delete pkt->senderState;
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:101:    LSQSenderState *state = dynamic_cast<LSQSenderState *>(pkt->senderState);
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:1194:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:1226:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:1228:            snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:1430:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:1439:            data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:1440:            snd_data_pkt->senderState = state;
+./cpu/o3/lsq_unit_impl.hh.withloadToVLD:1919:            dynamic_cast<LSQSenderState *>(retryPkt->senderState);
+./cpu/simple/timing.cc:335:            dynamic_cast<SplitFragmentSenderState *>(pkt1->senderState);
+./cpu/simple/timing.cc:339:                    pkt2->senderState);
+./cpu/simple/timing.cc:347:            dynamic_cast<SplitFragmentSenderState *>(pkt1->senderState);
+./cpu/simple/timing.cc:352:                    pkt2->senderState);
+./cpu/simple/timing.cc:409:    pkt->senderState = main_send_state;
+./cpu/simple/timing.cc:413:    pkt1->senderState = new SplitFragmentSenderState(pkt, 0);
+./cpu/simple/timing.cc:414:    pkt2->senderState = new SplitFragmentSenderState(pkt, 1);
+./cpu/simple/timing.cc:830:    if (pkt->senderState) {
+./cpu/simple/timing.cc:832:            dynamic_cast<SplitFragmentSenderState *>(pkt->senderState);
+./cpu/simple/timing.cc:840:            dynamic_cast<SplitMainSenderState *>(big_pkt->senderState);
+./cpu/simple/timing.cc:850:            big_pkt->senderState = NULL;
+./cpu/simple/timing.cc:952:    if (tmp->senderState) {
+./cpu/simple/timing.cc:955:            dynamic_cast<SplitFragmentSenderState *>(tmp->senderState);
+./cpu/simple/timing.cc:960:            dynamic_cast<SplitMainSenderState *>(big_pkt->senderState);
+./cpu/simple/timing.hh:104:                dynamic_cast<SplitMainSenderState *>(bigPkt->senderState);
+./cpu/testers/garnet_synthetic_traffic/GarnetSyntheticTraffic.cc:323:    pkt->senderState = NULL;
+./cpu/testers/rubytest/Check.cc:123:    pkt->senderState = new SenderState(m_address, req->getSize());
+./cpu/testers/rubytest/Check.cc:129:        delete pkt->senderState;
+./cpu/testers/rubytest/Check.cc:160:    pkt->senderState = new SenderState(m_address, req->getSize());
+./cpu/testers/rubytest/Check.cc:205:    pkt->senderState = new SenderState(writeAddr, req->getSize());
+./cpu/testers/rubytest/Check.cc:217:        delete pkt->senderState;
+./cpu/testers/rubytest/Check.cc:259:    pkt->senderState = new SenderState(m_address, req->getSize());
+./cpu/testers/rubytest/Check.cc:271:        delete pkt->senderState;
+./cpu/testers/rubytest/RubyTester.cc:180:    RubyTester::SenderState* senderState =
+./cpu/testers/rubytest/RubyTester.cc:181:        safe_cast<RubyTester::SenderState*>(pkt->senderState);
+./cpu/testers/rubytest/RubyTester.cc:182:    SubBlock& subblock = senderState->subBlock;
+./cpu/testers/rubytest/RubyTester.cc:186:    // Now that the tester has completed, delete the senderState
+./cpu/testers/rubytest/RubyTester.cc:188:    delete pkt->senderState;
+./dev/dma_device.cc:70:    DmaReqState *state = dynamic_cast<DmaReqState*>(pkt->senderState);
+./dev/dma_device.cc:176:        pkt->senderState = reqState;
+./doc/inside-minor.doxygen:277:memory queues of Fetch1 and are pushed into/popped from Packet::senderState
+./gpu-compute/compute_unit.cc:624:    SenderState *sender_state = safe_cast<SenderState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:655:        delete pkt->senderState;
+./gpu-compute/compute_unit.cc:666:        delete pkt->senderState;
+./gpu-compute/compute_unit.cc:796:        pkt->senderState = new DTLBPort::SenderState(gpuDynInst, index);
+./gpu-compute/compute_unit.cc:798:        // This is the senderState needed by the TLB hierarchy to function
+./gpu-compute/compute_unit.cc:801:                                               pkt->senderState);
+./gpu-compute/compute_unit.cc:803:        pkt->senderState = translation_state;
+./gpu-compute/compute_unit.cc:815:                safe_cast<X86ISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:838:            pkt->senderState = new ComputeUnit::DataPort::SenderState(gpuDynInst,
+./gpu-compute/compute_unit.cc:888:        delete pkt->senderState;
+./gpu-compute/compute_unit.cc:891:        pkt->senderState = new TheISA::GpuTLB::TranslationState(TLB_mode,
+./gpu-compute/compute_unit.cc:910:        // safe_cast the senderState
+./gpu-compute/compute_unit.cc:912:             safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:916:        delete pkt->senderState;
+./gpu-compute/compute_unit.cc:930:    pkt->senderState = new ComputeUnit::DataPort::SenderState(gpuDynInst, index,
+./gpu-compute/compute_unit.cc:967:    pkt->senderState =
+./gpu-compute/compute_unit.cc:978:        safe_cast<DataPort::SenderState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:1057:    delete pkt->senderState;
+./gpu-compute/compute_unit.cc:1076:    assert(pkt->senderState);
+./gpu-compute/compute_unit.cc:1081:               safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:1104:    pkt->senderState = translation_state->saved;
+./gpu-compute/compute_unit.cc:1113:        safe_cast<DTLBPort::SenderState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:1192:            prefetch_pkt->senderState =
+./gpu-compute/compute_unit.cc:1200:            /* safe_cast the senderState */
+./gpu-compute/compute_unit.cc:1203:                         prefetch_pkt->senderState);
+./gpu-compute/compute_unit.cc:1217:    delete pkt->senderState;
+./gpu-compute/compute_unit.cc:1221:    new_pkt->senderState =
+./gpu-compute/compute_unit.cc:1259:    SenderState *sender_state = safe_cast<SenderState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:1324:    assert(pkt->senderState);
+./gpu-compute/compute_unit.cc:1328:                 safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:1333:    pkt->senderState = translation_state->saved;
+./gpu-compute/compute_unit.cc:1338:        safe_cast<ITLBPort::SenderState*>(pkt->senderState);
+./gpu-compute/compute_unit.cc:1342:    delete pkt->senderState;
+./gpu-compute/compute_unit.cc:1811:    newPacket->senderState = new LDSPort::SenderState(gpuDynInst);
+./gpu-compute/compute_unit.cc:1822:    const ComputeUnit::LDSPort::SenderState *senderState =
+./gpu-compute/compute_unit.cc:1823:        dynamic_cast<ComputeUnit::LDSPort::SenderState *>(packet->senderState);
+./gpu-compute/compute_unit.cc:1825:    fatal_if(!senderState, "did not get the right sort of sender state");
+./gpu-compute/compute_unit.cc:1827:    GPUDynInstPtr gpuDynInst = senderState->getMemInst();
+./gpu-compute/compute_unit.cc:1829:    delete packet->senderState;
+./gpu-compute/compute_unit.cc:1846:            dynamic_cast<ComputeUnit::LDSPort::SenderState*>(pkt->senderState);
+./gpu-compute/fetch_stage.cc:79:        safe_cast<ComputeUnit::SQCPort::SenderState*>(pkt->senderState);
+./gpu-compute/fetch_unit.cc:157:        pkt->senderState = new ComputeUnit::ITLBPort::SenderState(wavefront);
+./gpu-compute/fetch_unit.cc:160:        pkt->senderState =
+./gpu-compute/fetch_unit.cc:163:                                                 false, pkt->senderState);
+./gpu-compute/fetch_unit.cc:187:        pkt->senderState =
+./gpu-compute/fetch_unit.cc:194:             safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/fetch_unit.cc:229:    pkt->senderState = new ComputeUnit::SQCPort::SenderState(wavefront);
+./gpu-compute/fetch_unit.cc:256:        safe_cast<ComputeUnit::SQCPort::SenderState*>(pkt->senderState);
+./gpu-compute/fetch_unit.cc:306:    delete pkt->senderState;
+./gpu-compute/gpu_tlb.cc:1049:        assert(pkt->senderState);
+./gpu-compute/gpu_tlb.cc:1055:                safe_cast<TranslationState*>(pkt->senderState);
+./gpu-compute/gpu_tlb.cc:1178:            safe_cast<TranslationState*>(pkt->senderState);
+./gpu-compute/gpu_tlb.cc:1193:            // TLB level. The senderState should be "carrying" a pointer to the
+./gpu-compute/gpu_tlb.cc:1211:         * in its senderState.
+./gpu-compute/gpu_tlb.cc:1264:            safe_cast<TranslationState*>(pkt->senderState);
+./gpu-compute/gpu_tlb.cc:1331:                safe_cast<TranslationState*>(pkt->senderState);
+./gpu-compute/gpu_tlb.cc:1424:            safe_cast<TranslationState*>(pkt->senderState);
+./gpu-compute/gpu_tlb.cc:1442:            // TLB level. The senderState should be "carrying" a pointer to the
+./gpu-compute/gpu_tlb.cc:1489:            safe_cast<TranslationState*>(pkt->senderState);
+./gpu-compute/gpu_tlb.hh:330:         * usually supposed to need to look at the contents of the senderState,
+./gpu-compute/gpu_tlb.hh:336:         * arguments, we need a common TLB senderState to pass between TLBs,
+./gpu-compute/lds_state.cc:98:    Packet::SenderState *baseSenderState = packet->senderState;
+./gpu-compute/lds_state.cc:102:    const ComputeUnit::LDSPort::SenderState *senderState =
+./gpu-compute/lds_state.cc:105:    fatal_if(!senderState,
+./gpu-compute/lds_state.cc:108:    GPUDynInstPtr gpuDynInst = senderState->getMemInst();
+./gpu-compute/lds_state.cc:189:                     packet->senderState);
+./gpu-compute/lds_state.cc:286:                            packet->senderState);
+./gpu-compute/shader.cc:385:    // update senderState. Need to know the gpuTc and the TLB mode
+./gpu-compute/shader.cc:386:    pkt->senderState =
+./gpu-compute/shader.cc:399:    /* safe_cast the senderState */
+./gpu-compute/shader.cc:401:               safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/shader.cc:404:    delete pkt->senderState;
+./gpu-compute/tlb_coalescer.cc:109:      safe_cast<TheISA::GpuTLB::TranslationState*>(incoming_pkt->senderState);
+./gpu-compute/tlb_coalescer.cc:112:     safe_cast<TheISA::GpuTLB::TranslationState*>(coalesced_pkt->senderState);
+./gpu-compute/tlb_coalescer.cc:156:        safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/tlb_coalescer.cc:177:                    local_pkt->senderState);
+./gpu-compute/tlb_coalescer.cc:198:            // update senderState->tlbEntry, so we can insert
+./gpu-compute/tlb_coalescer.cc:246:        safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/tlb_coalescer.cc:345:        safe_cast<TheISA::GpuTLB::TranslationState*>(pkt->senderState);
+./gpu-compute/tlb_coalescer.cc:469:                    (first_packet->senderState);
+./mem/abstract_mem.cc:449:            dynamic_cast<Packet::PrintReqState*>(pkt->senderState);
+./mem/addr_mapper.cc:146:        dynamic_cast<AddrMapperSenderState*>(pkt->senderState);
+./mem/addr_mapper.cc:156:    pkt->senderState = receivedState->predecessor;
+./mem/addr_mapper.cc:169:        pkt->senderState = receivedState;
+./mem/cache/cache.cc:2509:        snoop_pkt.senderState = nullptr;
+./mem/cache/cache.cc:2564:        snoop_pkt.senderState = mshr;
+./mem/comm_monitor.cc:296:        dynamic_cast<CommMonitorSenderState*>(pkt->senderState);
+./mem/comm_monitor.cc:304:        pkt->senderState = received_state->predecessor;
+./mem/comm_monitor.cc:320:            pkt->senderState = received_state;
+./mem/port.cc:213:    pkt.senderState = &prs;
+./mem/ruby/slicc_interface/AbstractController.cc:451:    SenderState *s = dynamic_cast<SenderState *>(pkt->senderState);
+./mem/ruby/system/GPUCoalescer.cc:665:                safe_cast<RubyPort::SenderState*>(pkt->senderState);
+./mem/ruby/system/GPUCoalescer.cc:1118:                safe_cast<RubyPort::SenderState*>(pkt->senderState);
+./mem/ruby/system/GPUCoalescer.cc:1166:            safe_cast<RubyPort::SenderState *>(mylist[i]->senderState);
+./mem/ruby/system/GPUCoalescer.cc:1170:        mylist[i]->senderState = ss->predecessor;
+./mem/ruby/system/RubyPort.cc:190:    RubyPort::SenderState *senderState =
+./mem/ruby/system/RubyPort.cc:192:    MemSlavePort *port = senderState->port;
+./mem/ruby/system/RubyPort.cc:194:    delete senderState;
+./mem/ruby/system/RubyPort.cc:445:    RubyPort::SenderState *senderState =
+./mem/ruby/system/RubyPort.cc:447:    MemSlavePort *port = senderState->port;
+./mem/ruby/system/RubyPort.cc:451:        delete senderState;
+./mem/mem_checker_monitor.cc:263:            dynamic_cast<MemCheckerMonitorSenderState*>(pkt->senderState);
+./mem/mem_checker_monitor.cc:270:        pkt->senderState = received_state->predecessor;
+./mem/mem_checker_monitor.cc:326:        pkt->senderState = received_state;
+./mem/packet.cc:269:        safe_cast<PrintReqState*>(senderState)->printObj(obj);
+./mem/packet.cc:379:    sender_state->predecessor = senderState;
+./mem/packet.cc:380:    senderState = sender_state;
+./mem/packet.cc:386:    assert(senderState != NULL);
+./mem/packet.cc:387:    SenderState *sender_state = senderState;
+./mem/packet.cc:388:    senderState = sender_state->predecessor;
+./mem/packet.hh:466:     * modifying the senderState field in the request packet.
+./mem/packet.hh:476:     * Object used to maintain state of a PrintReq.  The senderState
+./mem/packet.hh:545:    SenderState *senderState;
+./mem/packet.hh:550:     * prefered over direct manipulation of the senderState member
+./mem/packet.hh:560:     * preferred over direct manipulation of the senderState member
+./mem/packet.hh:578:        SenderState* sender_state = senderState;
+./mem/packet.hh:882:           senderState(NULL)
+./mem/packet.hh:906:           senderState(NULL)
+./mem/packet.hh:945:           senderState(pkt->senderState)
+./mem/packet.hh:1419:            safe_cast<PrintReqState*>(senderState)->pushLabel(lbl);
+./mem/packet.hh:1429:            safe_cast<PrintReqState*>(senderState)->popLabel();
+Binary file ./mem/.packet.hh.swp matches

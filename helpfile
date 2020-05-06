@@ -1,0 +1,186 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Nov 25 2018 19:35:12
+gem5 started Nov 26 2018 15:21:28
+gem5 executing on weapon, pid 1252511
+command line: ./build/X86_MESI_Two_Level/gem5.opt configs/example/se.py --help
+
+Usage: se.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -n NUM_CPUS, --num-cpus=NUM_CPUS
+  --sys-voltage=SYS_VOLTAGE
+                        Top-level voltage for blocks running at system
+                        power supply
+  --sys-clock=SYS_CLOCK
+                        Top-level clock for blocks running at system
+                        speed
+  --list-mem-types      List available memory types
+  --mem-type=MEM_TYPE   type of memory to use
+  --mem-channels=MEM_CHANNELS
+                        number of memory channels
+  --mem-ranks=MEM_RANKS
+                        number of memory ranks per channel
+  --mem-size=MEM_SIZE   Specify the physical memory size (single memory)
+  --memchecker          
+  --external-memory-system=EXTERNAL_MEMORY_SYSTEM
+                        use external ports of this port_type for caches
+  --tlm-memory=TLM_MEMORY
+                        use external port for SystemC TLM cosimulation
+  --caches              
+  --l2cache             
+  --num-dirs=NUM_DIRS   
+  --num-l2caches=NUM_L2CACHES
+  --num-l3caches=NUM_L3CACHES
+  --l1d_size=L1D_SIZE   
+  --l1i_size=L1I_SIZE   
+  --l2_size=L2_SIZE     
+  --l3_size=L3_SIZE     
+  --l1d_assoc=L1D_ASSOC
+  --l1i_assoc=L1I_ASSOC
+  --l2_assoc=L2_ASSOC   
+  --l3_assoc=L3_ASSOC   
+  --cacheline_size=CACHELINE_SIZE
+  --ruby                
+  -m TICKS, --abs-max-tick=TICKS
+                        Run to absolute simulated tick specified including
+                        ticks from a restored checkpoint
+  --rel-max-tick=TICKS  Simulate for specified number of ticks relative to the
+                        simulation start tick (e.g. if restoring a checkpoint)
+  --maxtime=MAXTIME     Run to the specified absolute simulated time in
+                        seconds
+  --list-cpu-types      List available CPU types
+  --cpu-type=CPU_TYPE   type of cpu to run with
+  --checker             
+  --cpu-clock=CPU_CLOCK
+                        Clock for blocks running at CPU speed
+  --smt                                        Only used if multiple programs
+                        are specified. If true,                       then the
+                        number of threads per cpu is same as the
+                        number of programs.
+  --elastic-trace-en    Enable capture of data dependency and instruction
+                        fetch traces using elastic trace probe.
+  --inst-trace-file=INST_TRACE_FILE
+                        Instruction fetch trace file input to
+                        Elastic Trace probe in a capture simulation and
+                        Trace CPU in a replay simulation
+  --data-trace-file=DATA_TRACE_FILE
+                        Data dependency trace file input to
+                        Elastic Trace probe in a capture simulation and
+                        Trace CPU in a replay simulation
+  -l, --lpae            
+  -V, --virtualisation  
+  --fastmem             
+  --dist                Parallel distributed gem5 simulation.
+  --dist-sync-on-pseudo-op
+                        Use a pseudo-op to start dist-gem5 synchronization.
+  --is-switch           Select the network switch simulator process for
+                        adistributed gem5 run
+  --dist-rank=DIST_RANK
+                        Rank of this system within the dist gem5 run.
+  --dist-size=DIST_SIZE
+                        Number of gem5 processes within the dist gem5 run.
+  --dist-server-name=DIST_SERVER_NAME
+                        Name of the message server host DEFAULT: localhost
+  --dist-server-port=DIST_SERVER_PORT
+                        Message server listen port DEFAULT: 2200
+  --dist-sync-repeat=DIST_SYNC_REPEAT
+                        Repeat interval for synchronisation barriers among
+                        dist-gem5 processes DEFAULT: --ethernet-linkdelay
+  --dist-sync-start=DIST_SYNC_START
+                        Time to schedule the first dist synchronisation
+                        barrier DEFAULT:5200000000000t
+  --ethernet-linkspeed=ETHERNET_LINKSPEED
+                        Link speed in bps DEFAULT: 10Gbps
+  --ethernet-linkdelay=ETHERNET_LINKDELAY
+                        Link delay in seconds DEFAULT: 10us
+  -I MAXINSTS, --maxinsts=MAXINSTS
+                        Total number of instructions to
+                        simulate (default: run forever)
+  --work-item-id=WORK_ITEM_ID
+                        the specific work id for exit & checkpointing
+  --num-work-ids=NUM_WORK_IDS
+                        Number of distinct work item types
+  --work-begin-cpu-id-exit=WORK_BEGIN_CPU_ID_EXIT
+                        exit when work starts on the specified cpu
+  --work-end-exit-count=WORK_END_EXIT_COUNT
+                        exit at specified work end count
+  --work-begin-exit-count=WORK_BEGIN_EXIT_COUNT
+                        exit at specified work begin count
+  --init-param=INIT_PARAM
+                        Parameter available in simulation with m5
+                        initparam
+  --initialize-only     Exit after initialization. Do not simulate time.
+                        Useful when gem5 is run as a library.
+  --simpoint-profile    Enable basic block profiling for SimPoints
+  --simpoint-interval=SIMPOINT_INTERVAL
+                        SimPoint interval in num of instructions
+  --take-simpoint-checkpoints=TAKE_SIMPOINT_CHECKPOINTS
+                        <simpoint file,weight file,interval-length,warmup-
+                        length>
+  --restore-simpoint-checkpoint
+                        restore from a simpoint checkpoint taken with --take-
+                        simpoint-checkpoints
+  --take-checkpoints=TAKE_CHECKPOINTS
+                        <M,N> take checkpoints at tick M and every N ticks
+                        thereafter
+  --max-checkpoints=MAX_CHECKPOINTS
+                        the maximum number of checkpoints to drop
+  --checkpoint-dir=CHECKPOINT_DIR
+                        Place all checkpoints in this absolute directory
+  -r CHECKPOINT_RESTORE, --checkpoint-restore=CHECKPOINT_RESTORE
+                        restore from checkpoint <N>
+  --checkpoint-at-end   take a checkpoint at end of run
+  --work-begin-checkpoint-count=WORK_BEGIN_CHECKPOINT_COUNT
+                        checkpoint at specified work begin count
+  --work-end-checkpoint-count=WORK_END_CHECKPOINT_COUNT
+                        checkpoint at specified work end count
+  --work-cpus-checkpoint-count=WORK_CPUS_CHECKPOINT_COUNT
+                        checkpoint and exit when active cpu count is reached
+  --restore-with-cpu=RESTORE_WITH_CPU
+                        cpu type for restoring from a checkpoint
+  --repeat-switch=REPEAT_SWITCH
+                        switch back and forth between CPUs with period <N>
+  -s STANDARD_SWITCH, --standard-switch=STANDARD_SWITCH
+                        switch from timing to Detailed CPU after warmup period
+                        of <N>
+  -p PROG_INTERVAL, --prog-interval=PROG_INTERVAL
+                        CPU Progress Interval
+  -W WARMUP_INSTS, --warmup-insts=WARMUP_INSTS
+                        Warmup period in total instructions (requires
+                        --standard-switch)
+  --bench=BENCH         base names for --take-checkpoint and --checkpoint-
+                        restore
+  -F FAST_FORWARD, --fast-forward=FAST_FORWARD
+                        Number of instructions to fast forward before
+                        switching
+  -S, --simpoint        Use workload simpoints as an instruction offset for
+                        --checkpoint-restore or --take-checkpoint.
+  --at-instruction      Treat value of --checkpoint-restore or --take-
+                        checkpoint as a                 number of
+                        instructions.
+  --spec-input=SPEC_INPUT
+                        Input set size for SPEC CPU2000 benchmarks.
+  --arm-iset=ARM_ISET   ARM instruction set.
+  --scheme=SCHEME       choose baseline or defense designs to evaluate
+  --needsTSO=NEEDSTSO   Select TSO or RC. Set unzero to use TSO.
+  --allowSpecBufHit=ALLOWSPECBUFHIT
+                        Allow to reuse spec buffer entries. Set unzero to
+                        reuse.
+  --applyDDIFT=APPLYDDIFT
+                        Whether using DDIFT as an optimization for InvisiSpec.
+  --ifPrintROB=IFPRINTROB
+                        Enable printing ROB content at every cycle
+  --configImpFlow=CONFIGIMPFLOW
+                        implicit flow handling mechanism
+  -c CMD, --cmd=CMD     The binary to run in syscall emulation mode.
+  -o OPTIONS, --options=OPTIONS
+                        The options to pass to the binary, use " "
+                        around the entire string
+  -e ENV, --env=ENV     Initialize workload environment from text file.
+  -i INPUT, --input=INPUT
+                        Read stdin from a file.
+  --output=OUTPUT       Redirect stdout to a file.
+  --errout=ERROUT       Redirect stderr to a file.

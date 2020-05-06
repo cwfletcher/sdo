@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2013 Mark D. Hill and David A. Wood
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met: redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer;
+ * redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following disclaimer in the
+ * documentation and/or other materials provided with the distribution;
+ * neither the name of the copyright holders nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+// Various class of messages that can be exchanged between the L0 and the L1
+// controllers.
+enumeration(CoherenceClass, desc="...") {
+  GETX,      desc="Get eXclusive";
+  UPGRADE,   desc="UPGRADE to exclusive";
+  GETS,      desc="Get Shared";
+  GET_INSTR, desc="Get Instruction";
+  INV,       desc="INValidate";
+  PUTX,      desc="Replacement message";
+
+  EXPOSE,               desc="Expose";
+  GETSPEC_L0,           desc="Speculative GetS, until L0";
+  GETSPEC_L1,           desc="Speculative GetS, until L1";
+  GETSPEC_L2,           desc="Speculative GetS, until L2";
+  GETSPEC_Mem,          desc="Speculative GetS, until Mem";
+  GETSPEC_Perfect,      desc="Speculative GetS, until hit";
+  GETSPEC_PerfectUnsafe,desc="Speculative GetS, until hit(unsafe)";
+
+  WB_ACK,    desc="Writeback ack";
+
+  // Request types for sending data and acks from L0 to L1 cache
+  // when an invalidation message is received.
+  INV_DATA;
+  INV_ACK;
+
+  DATA, desc="Data block for L1 cache in S state";
+  DATA_EXCLUSIVE, desc="Data block for L1 cache in M/E state";
+  DATA_SPEC_FROM_L1,  desc="Data block for Spec load from L1";   // Jiyong, MLDOM
+  DATA_SPEC_FROM_L2,  desc="Data block for Spec load from L2";   // Jiyong, MLDOM
+  DATA_SPEC_FROM_MEM, desc="Data block for Spec load from Mem";   // Jiyong, MLDOM
+  ACK, desc="Generic invalidate ack";
+}
+
+// Class for messages sent between the L0 and the L1 controllers.
+structure(CoherenceMsg, desc="...", interface="Message") {
+  Addr addr,              desc="Physical address of the cache block";
+  CoherenceClass Class,         desc="Type of message (GetS, GetX, PutX, etc)";
+  RubyAccessMode AccessMode,    desc="user/supervisor access type";
+  MachineID Sender,             desc="What component sent this message";
+  MachineID Dest,        desc="What machine receives this message";
+  MessageSizeType MessageSize,  desc="size category of the message";
+  DataBlock DataBlk,            desc="Data for the cache line (if PUTX)";
+  bool Dirty, default="false",  desc="Dirty bit";
+  PrefetchBit Prefetch,         desc="Is this a prefetch request";
+  int idx, default="-1",        desc="LQ index";
+  // Jiyong, MLDOM
+  bool hitAtL0,  default="false", desc="if the spec load was a L0 hit";  // Jiyong MLDOM
+  bool hitAtL1,  default="false", desc="if the spec load was a L1 hit";  // Jiyong MLDOM
+  bool hitAtL2,  default="false", desc="if the spec load was a L2 hit";  // Jiyong MLDOM
+  bool hitAtMem, default="false", desc="if the spec load was a Mem hit"; // Jiyong MLDOM
+  DataBlock DataBlk_L0,           desc="SpecLoad hit in L0 will carry the data";   // Jiyong: add block read from L0
+  DataBlock DataBlk_L1,           desc="SpecLoad hit in L1 will carry the data";   // Jiyong: add block read from L0
+  DataBlock DataBlk_L2,           desc="SpecLoad hit in L2 will carry the data";   // Jiyong: add block read from L0
+  DataBlock DataBlk_Mem,          desc="SpecLoad hit in Mem will carry the data";   // Jiyong: add block read from L0
+
+
+  bool functionalRead(Packet *pkt) {
+    // Only PUTX messages contains the data block
+    if (Class == CoherenceClass:PUTX) {
+        return testAndRead(addr, DataBlk, pkt);
+    }
+
+    return false;
+  }
+
+  bool functionalWrite(Packet *pkt) {
+    // No check on message type required since the protocol should
+    // read data from those messages that contain the block
+    return testAndWrite(addr, DataBlk, pkt);
+  }
+}
