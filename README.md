@@ -9,7 +9,7 @@ More details can be found in our ISCA'20 paper [here](). Here is a sample format
   title={Speculative Data-Oblivious Execution: Mobilizing Safe Prediction For Safe and Efficient Speculative Execution},
   author={Yu, Jiyong and Mantri, Namrata and Torrellas, Josep and Morrison, Adam and Fletcher, Christopher W},
   booktitle={Proceedings of the ACM/IEEE 47th Annual International Symposium on Computer Architecture (ISCA)},
-  pages={707-720},
+  pages={707---720},
   year={2020}
 }
 ```
