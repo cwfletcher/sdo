@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Your gem5 path
-GEM5_PATH=/home/SDO
+GEM5_PATH=/home/sdo
 
 # Your executable path
 EXE_PATH=/home/a.out
@@ -38,6 +38,7 @@ $GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt --outdir=$OUT_DIR \
 $GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt --outdir=$OUT_DIR \
     $CONFIG_FILE \
     $gem5_common_config \
+    --scheme=DelayExecute \
     --threat_model=Spectre \
     --STT=1 --impChannel=1 \
     -c $EXE_PATH
@@ -49,9 +50,10 @@ $GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt --outdir=$OUT_DIR \
 $GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt --outdir=$OUT_DIR \
     $CONFIG_FILE \
     $gem5_common_config \
+    --scheme=SDO \
     --threat_model=Spectre \
     --STT=1 --impChannel=1 \
-    --enable_SDO --pred_type=tournament_2way \
+    --pred_type=tournament_2way \
     --subpred1_type=greedy --subpred2_type=loop \
     --pred_option=0 --TLB_defense=SDO \
     -c $EXE_PATH

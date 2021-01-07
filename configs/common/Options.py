@@ -382,10 +382,10 @@ def addCommonOptions(parser):
             choices=["Spectre", "Futuristic"],
             help="Select Spectre of Futuristic.")
     # [Jiyong,STT] add options for STT configurations
-    parser.add_option("--STT", action="store_true", default=False,
+    parser.add_option("--STT", default=None, action="store", type="int",
             help="Whether using STT.")
     parser.add_option("--impChannel", default=None, action="store", type="int",
-            help="implicit channel mechanism")
+            help="Whether using implicit channel mechanism")
     parser.add_option("--ifPrintROB", default=None, action="store", type="int",
             help="Enable printing ROB content at every cycle")
     parser.add_option("--moreTransTypes", default=0, action="store", type="int",
@@ -399,9 +399,6 @@ def addCommonOptions(parser):
             help="generate a hit trace for specfied loads. number of Ld specified by this option. Need to read a file for specified load")
     parser.add_option("--genHitTrace_WkldName", default=None, action="store", type="string",
             help="the name of the workload to generate hit trace. Must have genHitTraceForLoad > 0")
-    # [Jiyong,STT_SDO] add options to enable SDO
-    parser.add_option("--enable_SDO", action="store_true", default=False,
-            help="enable SDO") 
     # [Jiyong,STT_SDO] add options for configuring location (cache) predictor
     ## static: access cache levels from L1 -> LX (X is specified as a parameter)
     ##      0: L0 (L1), 1: L1 (L2), 2: L2(LLC), 3: Mem(DRAM)

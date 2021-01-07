@@ -135,7 +135,7 @@ def config_scheme(cpu_cls, cpu_list, options):
 
             ## Jiyong, STT: STT related configurations passed to gem5 O3CPU
             if options.STT:
-                cpu.STT = options.STT;
+                cpu.STT = True;
             else:
                 cpu.STT = False;
 
@@ -174,9 +174,9 @@ def config_scheme(cpu_cls, cpu_list, options):
                 cpu.genHitTrace_WkldName = options.genHitTrace_WkldName
 
             ## Jiyong, SDO configs
-            if options.enable_SDO:
-                cpu.enable_MLDOM = options.enable_SDO
-                print "### SDO enabled = %d" % options.enable_SDO
+            if options.scheme == "SDO":
+                cpu.enable_MLDOM = True
+                print "### SDO is enabled"
             else:
                 cpu.enable_MLDOM = False
                 print "### SDO is disabled"
@@ -195,16 +195,19 @@ def config_scheme(cpu_cls, cpu_list, options):
                 print "### SDO predictor has option: %d" % options.pred_option
 
             if options.subpred1_type:
+                assert (cpu.enable_MLDOM)
                 cpu.tournament_pred1_type = options.subpred1_type
             else:
                 cpu.tournament_pred1_type = "none"
 
             if options.subpred2_type:
+                assert (cpu.enable_MLDOM)
                 cpu.tournament_pred2_type = options.subpred2_type
             else:
                 cpu.tournament_pred2_type = "none"
 
             if options.subpred3_type:
+                assert (cpu.enable_MLDOM)
                 cpu.tournament_pred3_type = options.subpred3_type
             else:
                 cpu.tournament_pred3_type = "none"

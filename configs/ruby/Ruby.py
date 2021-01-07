@@ -185,7 +185,7 @@ def create_system(options, full_system, system, piobus = None, dma_ports = []):
     setup_memory_controllers(system, ruby, dir_cntrls, options)
 
     # Jiyong, MLDOM
-    ruby.enable_MLDOM = options.enable_MLDOM
+    ruby.enable_MLDOM = (options.scheme == "SDO")
     ruby.enable_OblS_contention = options.enable_OblS_contention
 
     # Connect the cpu sequencers and the piobus
